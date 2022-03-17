@@ -8,6 +8,7 @@ let h1;
 let canvas;
 
 let grid;
+let next;
 let cols;
 let rows;
 let generation = 0;
@@ -44,11 +45,14 @@ function draw() {
 
 function NextGeneration() {
   generation++;
+  next = grid;
   for (var i = 0; i < cols; i++) {
     for (var j = 0; j < rows; j++) {
-      grid[i][j].age();
+      next[i][j].age();
     }
   }
+  grid = next;
+
   console.log("Generation " + generation);
   generationCounter.html("Generation " + generation);
 }
